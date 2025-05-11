@@ -2,35 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Animated Heart</title>
   <style>
     body {
-      margin: 0;
-      height: 100vh;
-      background-color: #fff0f5;
+      background-color: #111;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      margin: 0;
     }
 
     .heart {
       width: 100px;
       height: 90px;
+      background: red;
       position: relative;
-      background-color: red;
       transform: rotate(-45deg);
-      animation: beat 1s infinite;
+      animation: pulse 1s infinite;
     }
 
     .heart::before,
     .heart::after {
       content: "";
-      position: absolute;
       width: 100px;
       height: 90px;
-      background-color: red;
+      background: red;
       border-radius: 50%;
+      position: absolute;
     }
 
     .heart::before {
@@ -43,12 +43,12 @@
       top: 0;
     }
 
-    @keyframes beat {
+    @keyframes pulse {
       0%, 100% {
         transform: scale(1) rotate(-45deg);
       }
       50% {
-        transform: scale(1.2) rotate(-45deg);
+        transform: scale(1.1) rotate(-45deg);
       }
     }
   </style>
