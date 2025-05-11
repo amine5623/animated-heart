@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Animated Heart</title>
+  <title>Gold Case with Heart</title>
   <style>
     body {
       background-color: #111;
@@ -14,14 +14,39 @@
       margin: 0;
     }
 
+    .case {
+      width: 150px;
+      height: 150px;
+      background-color: gold;
+      position: relative;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .case.open {
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+    }
+
+    .case.open .heart {
+      opacity: 1;
+      animation: heartPop 1s ease-out forwards;
+    }
+
     .heart {
       width: 100px;
       height: 90px;
       background: red;
-      position: relative;
+      position: absolute;
       transform: rotate(-45deg);
-      animation: heartPop 1s ease-out forwards; /* Animation for heart to appear */
       opacity: 0; /* Start invisible */
+      top: 30px;
+      animation: none;
     }
 
     .heart::before,
@@ -59,9 +84,20 @@
         opacity: 1;
       }
     }
+
   </style>
 </head>
 <body>
-  <div class="heart"></div>
+  <div class="case" id="case">
+    <div class="heart"></div>
+  </div>
+
+  <script>
+    const caseElement = document.getElementById('case');
+
+    caseElement.addEventListener('click', () => {
+      caseElement.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
