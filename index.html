@@ -20,7 +20,8 @@
       background: red;
       position: relative;
       transform: rotate(-45deg);
-      animation: pulse 1s infinite;
+      animation: heartPop 1s ease-out forwards; /* Animation for heart to appear */
+      opacity: 0; /* Start invisible */
     }
 
     .heart::before,
@@ -43,12 +44,19 @@
       top: 0;
     }
 
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1) rotate(-45deg);
+    /* Keyframe for the popping effect */
+    @keyframes heartPop {
+      0% {
+        transform: scale(0) rotate(-45deg);
+        opacity: 0;
       }
       50% {
         transform: scale(1.1) rotate(-45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1) rotate(-45deg);
+        opacity: 1;
       }
     }
   </style>
