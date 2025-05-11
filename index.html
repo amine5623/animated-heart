@@ -27,12 +27,6 @@
       align-items: center;
     }
 
-    .case.open {
-      width: 150px;
-      height: 150px;
-      overflow: hidden;
-    }
-
     .case.open .heart {
       opacity: 1;
       animation: heartPop 1s ease-out forwards;
@@ -44,7 +38,7 @@
       background: red;
       position: absolute;
       transform: rotate(-45deg);
-      opacity: 0; /* Start invisible */
+      opacity: 0; /* Initially hidden */
       top: 30px;
       animation: none;
     }
@@ -93,11 +87,4 @@
   </div>
 
   <script>
-    const caseElement = document.getElementById('case');
-
-    caseElement.addEventListener('click', () => {
-      caseElement.classList.toggle('open');
-    });
-  </script>
-</body>
-</html>
+    const caseElement = document.get
